@@ -27,6 +27,7 @@ export default function NativeTTSMessage({ message }) {
     if (window.speechSynthesis.speaking && !speaking) return;
     const utterance = new SpeechSynthesisUtterance(message);
     utterance.addEventListener("end", endSpeechUtterance);
+    window.speechSynthesis.rate = 1;
     window.speechSynthesis.speak(utterance);
     setSpeaking(true);
   }
